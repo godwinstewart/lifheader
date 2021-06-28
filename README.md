@@ -17,7 +17,8 @@ run with little to no modification on MacOS. It'll probably require some tweaks 
 build and run on Win32.
 
 ## Usage
-```        lifheader { -a action | -h } [ -i input_file ] [ -o output_file ] [ -t file_type ]
+```
+        lifheader { -a action | -h } [ -i input_file ] [ -o output_file ] [ -t file_type ]
                   [ -l lif_file_name ]
 
         -h                Shows this help message.
