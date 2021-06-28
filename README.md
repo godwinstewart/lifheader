@@ -58,7 +58,7 @@ build and run on Win32.
 ## License
 "lifheader" is released under the BSD Zero Clause License.
 
-Copyright (c) 2021 by Godwin Stewart <g.stewart@horwits.co.uk>
+Copyright (c) 2021 by Godwin Stewart
 
 Permission to use, copy, modify, and/or distribute this software for any
 purpose with or without fee is hereby granted.
