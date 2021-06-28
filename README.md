@@ -52,4 +52,5 @@ build and run on Win32.
 
         -l lif_file_name  Provides the name for the file in the LIF image when adding a
                           LIF header to a file. The name is deduced from the original
-                          filename if not given on the command line.```
+                          filename if not given on the command line.
+```
