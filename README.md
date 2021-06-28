@@ -1,6 +1,6 @@
 # lifheader
 
-** Copyright (c) 2021 Godwin Stewart <g.stewart*@*horwits.co.uk>**
+** Copyright (c) 2021 Godwin Stewart**
 
 This is a utility designed to work in tandem with Tony Duell's original
 [lifutils](https://github.com/bug400/lifutils). It is based both on `lifutils`
