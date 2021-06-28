@@ -121,7 +121,7 @@ int main(int argc, char** argv) {
 		uint16_t lifID = lifIDFromType(fileType);
 		if (!lifID) {
 			fprintf(stderr, "ERROR: unknown LIF file type: %s\n", fileType);
-			errorCode = 11;
+			errorCode = 12;
 			goto alldone;
 		}
 		
@@ -150,6 +150,12 @@ int main(int argc, char** argv) {
 				}
 				else
 					inData = (byte*)malloc(BYTESPERSECTOR);
+				
+				if (!inData) {
+					fprintf(stderr, "ERROR: Out of memory reading in source data.\n");
+					errorCode = 13;
+					goto alldone;
+				}
 				
 				memcpy(inData + dataSize, sector, bytesRead);
 				dataSize += bytesRead;
