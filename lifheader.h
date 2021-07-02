@@ -14,9 +14,13 @@ typedef unsigned char byte;
 #define BYTESPERSECTOR	256
 #define FILENAMELENGTH	10
 
-#include <stdio.h>
+#ifdef __WIN32
+#include <winsock.h>
+#include <stdint.h>
+#else
 #include <arpa/inet.h>
-
+#endif
+#include <stdio.h>
 
 /* Define the structure of the LIF header here */
 typedef struct {
