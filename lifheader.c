@@ -80,7 +80,14 @@ int main(int argc, char** argv) {
 		}
 	}
 	else {
+#ifdef __WIN32
+		outStream = freopen(NULL, "wb", stdout);
+		fprintf(stderr, "ERROR: No output file given\n");
+		errorCode = 13;
+		goto alldone;
+#else
 		outStream = stdout;
+#endif
 	}
 	
 	/* Stripping a header? Don't ask questions, just chop off the first 32 bytes. */
@@ -343,7 +350,7 @@ void ShowLIFHeader(PLIFHDR hdr) {
 	
 	printf("File name:    %s\n", name);
 	printf("File type:    0x%04x (%s)\n", lifType, fileType ? fileType : "unknown");
-	printf("Start sector: %u\n", ntohl(hdr->startSector));
+	printf("Start sector: %u\n", (unsigned)ntohl(hdr->startSector));
 	printf("File length:  %u sectors (%u bytes), %d bytes used\n", nSectors, nBytes, usedBytes);
 	printf("Timestamp:    %d-%02d-%02d %02d:%02d:%02d\n",
 		yr,
@@ -354,7 +361,7 @@ void ShowLIFHeader(PLIFHDR hdr) {
 		BCD2int((int)hdr->timestamp[5])
 	);
 	printf("Volume ID:    0x%04x\n", (int)ntohs(hdr->volumeID));
-	printf("Gen. Purpose: 0x%08x\n\n", ntohl(hdr->generalPurpose));
+	printf("Gen. Purpose: 0x%08x\n\n", (unsigned)ntohl(hdr->generalPurpose));
 	
 }
 
@@ -371,8 +378,12 @@ void ShowUsage() {
 	printf("\t\t-a show         Shows the data in the LIF header.\n\n");
 	printf("\t-i input_file     Designates the input file to read from. If not given\n");
 	printf("\t                  or if the string `-' is given, then STDIN is used.\n\n");
+#ifdef __WIN32
+	printf("\t-o output_file    Designates the output file to write to (required for -a add and -a strip).\n\n");
+#else
 	printf("\t-o output_file    Designates the output file to write to. If not given\n");
 	printf("\t                  or if the string `-' is given, then STDOUT is used.\n\n");
+#endif
 	printf("\t-t file_type      When adding a LIF header to a file, specifies the file type\n");
 	printf("\t                  to indicate in the header. Possible options are:\n");
 	printf("\t\t-t lex71        HP-71B LEX file (0xe208)\n");

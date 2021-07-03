@@ -7,7 +7,7 @@ HDR = $(SRC:.c=.h)
 
 ifeq ($(OS),Windows_NT)
 lifheader.exe: $(OBJ)
-	gcc -o lifheader -Wall $(OBJ) -lws2_32
+	gcc -o lifheader.exe -Wall $(OBJ) -lws2_32
 else
 lifheader: $(OBJ)
 	gcc -o lifheader -Wall $(OBJ)

@@ -12,9 +12,10 @@ can build a new LIF header to prepend to a file that doesn't yet have one, thus
 preparing it for inclusion in a LIF disk image using the `lifput` tool that is
 part of `lifutils`.
 
-`lifheader` has been built and works on a Linux system. It should probably build and
-run with little to no modification on MacOS. It'll probably require some tweaks to
-build and run on Win32.
+`lifheader` has been built and works on a Linux system using the standard GNU
+make and gcc tools. On MS-Windows it has been built and works using gcc and
+MinGW64. It should build and work fine on MacOS with some limited tweaking
+(I don't have access to a MacOS system to do the tweaking).
 
 ## Usage
 ```
